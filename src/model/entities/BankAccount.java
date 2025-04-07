@@ -1,5 +1,6 @@
 package model.entities;
 
+import model.entities.exceptions.DomainException;
 
 /**
  * Represents a simple bank account with basic deposit and withdrawal functionality.
@@ -43,7 +44,7 @@ public class BankAccount {
 	// Withdraws a given amount from the account, if sufficient balance exists.
 	public void withdraw(double amount) {
 		if(amount > balance) {
-			System.out.println("Not enough balance!");
+			throw new DomainException("Not enought balance!");
 		}
 		else {
 			balance -= amount;
